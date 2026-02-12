@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWILL • ADMIN LOGIN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-body">
+    <div class="admin-login-container">
+        <div class="login-card purple-border">
+            <div class="login-icon">⚡</div>
+            <h1 class="gradient-text">SWILL ACCESS</h1>
+            <p class="login-subtitle">ВЛАДЕЛЕЦ САЙТА</p>
+            
+            {% if error %}
+            <div class="error-message">
+                ⚠ НЕВЕРНЫЙ ПАРОЛЬ
+            </div>
+            {% endif %}
+            
+            <form method="POST" action="{{ url_for('admin') }}">
+                <div class="input-group">
+                    <input type="password" 
+                           name="password" 
+                           placeholder="MASTER PASSWORD" 
+                           class="purple-input"
+                           autofocus
+                           required>
+                </div>
+                
+                <button type="submit" class="btn btn-purple btn-large">
+                    🔓 ВОЙТИ В ПАНЕЛЬ
+                </button>
+            </form>
+            
+            <div class="password-hint">
+                ПАРОЛЬ: <span class="password-demo">swillmaster2025</span>
+            </div>
+            
+            <a href="{{ url_for('index') }}" class="back-link">
+                ← НА ГЛАВНУЮ
+            </a>
+        </div>
+    </div>
+</body>
+</html>

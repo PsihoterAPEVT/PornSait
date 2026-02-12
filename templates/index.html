@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWILL - PREMIUM ADULT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ SWILL STREAM</div>
+        <div class="header-controls">
+            <div class="live-earnings">
+                <span>💰 LIVE:</span>
+                <span id="today-earnings">${{ "{:,}".format(earnings.today) }}</span>
+            </div>
+            <a href="{{ url_for('admin') }}" class="owner-btn">OWNER</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- AD SPACE - $10,000/DAY -->
+        <div class="ad-unit">
+            <div class="ad-content">PREMIUM AD SPACE • $10,000/DAY</div>
+        </div>
+
+        <!-- СТАТИСТИКА ДОХОДОВ -->
+        <div class="stats-container">
+            <div class="stat-card purple-glow">
+                <div class="stat-value">${{ "{:,}".format(earnings.total) }}</div>
+                <div class="stat-label">ВСЕГО ЗАРАБОТАНО</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${{ "{:,}".format(earnings.week) }}</div>
+                <div class="stat-label">ЗА НЕДЕЛЮ</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="today-stat">${{ "{:,}".format(earnings.today) }}</div>
+                <div class="stat-label">СЕГОДНЯ</div>
+            </div>
+        </div>
+
+        <!-- ПРЕМИУМ КОНТЕНТ -->
+        <div class="content-header">
+            <h1 class="gradient-text">ПРЕМИУМ КОЛЛЕКЦИЯ</h1>
+            <span class="age-restriction">18+ ONLY</span>
+        </div>
+
+        <div class="video-grid">
+            {% for video in videos|reverse %}
+            <div class="video-card">
+                <div class="thumbnail-container">
+                    {% if video.thumbnail and video.thumbnail != '' %}
+                    <img src="{{ url_for('uploaded_file', filename=video.thumbnail) }}" alt="Thumbnail" class="video-thumbnail">
+                    {% else %}
+                    <div class="thumbnail-placeholder">🎬</div>
+                    {% endif %}
+                    <div class="video-duration">PREMIUM</div>
+                </div>
+                <div class="video-info">
+                    <div class="video-meta">
+                        <span class="premium-badge">⭐ PREMIUM</span>
+                        <span class="views-count">🔥 {{ "{:,}".format(video.views) }} просмотров</span>
+                    </div>
+                    <h3 class="video-title">{{ video.title }}</h3>
+                    <p class="video-description">{{ video.description }}</p>
+                    <button class="btn btn-purple" onclick="window.location.href='/video/{{ video.id }}'">
+                        СМОТРЕТЬ СЕЙЧАС
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SWILL NETWORK</div>
+            <div class="footer-copyright">© 2026 • PREMIUM ADULT ENTERTAINMENT</div>
+            <div class="footer-purple">ФИОЛЕТОВАЯ ОБВОДКА • ТЕМНАЯ ТЕМА</div>
+        </div>
+    </footer>
+
+    <script>
+        // АВТООБНОВЛЕНИЕ ПРИБЫЛИ
+        setInterval(() => {
+            fetch('/api/earnings')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('today-earnings').innerHTML = '$' + data.today.toLocaleString();
+                    document.getElementById('today-stat').innerHTML = '$' + data.today.toLocaleString();
+                    
+                    // ОБНОВЛЯЕМ ВСЕ КАРТОЧКИ
+                    document.querySelectorAll('.stat-card .stat-value')[0].innerHTML = '$' + data.total.toLocaleString();
+                    document.querySelectorAll('.stat-card .stat-value')[1].innerHTML = '$' + data.week.toLocaleString();
+                    document.querySelectorAll('.stat-card .stat-value')[2].innerHTML = '$' + data.today.toLocaleString();
+                });
+        }, 5000);
+    </script>
+</body>
+</html>

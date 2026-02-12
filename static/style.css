@@ -1,0 +1,639 @@
+/* ========================================
+   SWILL ADULT STREAM - PREMIUM DARK THEME
+   ФИОЛЕТОВАЯ ОБВОДКА • НЕОН • ГЛЯНЕЦ
+======================================== */
+
+:root {
+    --purple-primary: #6b21a8;
+    --purple-secondary: #9333ea;
+    --purple-light: #a855f7;
+    --purple-glow: #c084fc;
+    --dark-bg: #0a0a0f;
+    --dark-card: #14141f;
+    --dark-header: #12121a;
+    --dark-border: #2d2d3f;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-purple: #d8b4fe;
+    --gradient-purple: linear-gradient(145deg, #7e22ce, #6b21a8);
+    --gradient-text: linear-gradient(45deg, #a855f7, #e879f9);
+    --shadow-purple: 0 0 20px rgba(107, 33, 168, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--dark-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ========== ФИОЛЕТОВАЯ ОБВОДКА ========== */
+.purple-border, 
+.btn-purple, 
+.video-card, 
+.stat-card, 
+.upload-section,
+.login-card,
+.purple-input:focus,
+header {
+    border: 2px solid var(--purple-primary) !important;
+    box-shadow: var(--shadow-purple) !important;
+}
+
+/* ========== ХЕДЕР ========== */
+header {
+    background: var(--dark-header);
+    padding: 20px 50px;
+    border-bottom: 2px solid var(--purple-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.live-earnings {
+    background: var(--dark-card);
+    padding: 10px 25px;
+    border-radius: 40px;
+    border: 1px solid var(--purple-light);
+    font-weight: 600;
+}
+
+.live-earnings span:first-child {
+    color: var(--purple-glow);
+    margin-right: 8px;
+}
+
+.owner-btn {
+    background: var(--dark-card);
+    padding: 10px 25px;
+    border-radius: 40px;
+    color: var(--purple-light);
+    text-decoration: none;
+    border: 1px solid var(--purple-primary);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.owner-btn:hover {
+    background: var(--purple-primary);
+    color: white;
+    box-shadow: var(--shadow-purple);
+}
+
+/* ========== КОНТЕЙНЕР ========== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ========== AD UNIT ========== */
+.ad-unit {
+    background: var(--dark-card);
+    border: 2px solid var(--purple-primary);
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-content {
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(168, 85, 247, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/* ========== СТАТИСТИКА ========== */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.stat-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    border-color: var(--purple-light);
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--purple-primary);
+}
+
+.stat-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--purple-light);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+/* ========== ВИДЕО СЕТКА ========== */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.video-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.video-card:hover {
+    border: 2px solid var(--purple-light);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 40px -15px var(--purple-primary);
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(145deg, #2d2d3f, #1a1a24);
+    border-bottom: 2px solid var(--purple-primary);
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: var(--purple-light);
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: var(--purple-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.video-info {
+    padding: 25px;
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.premium-badge {
+    background: var(--purple-primary);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.views-count {
+    color: var(--purple-glow);
+    font-size: 14px;
+}
+
+.video-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.video-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* ========== КНОПКИ ========== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-purple {
+    background: var(--gradient-purple);
+    color: white;
+    border: 1px solid var(--purple-light);
+}
+
+.btn-purple:hover {
+    background: linear-gradient(145deg, #9333ea, #7e22ce);
+    box-shadow: 0 0 30px var(--purple-light);
+    transform: scale(1.02);
+}
+
+.btn-large {
+    padding: 16px 40px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 14px;
+    background: var(--dark-card);
+    color: var(--purple-light);
+    border: 1px solid var(--purple-primary);
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-small:hover {
+    background: var(--purple-primary);
+    color: white;
+}
+
+.btn-danger {
+    color: #f87171;
+    border-color: #f87171;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
+}
+
+/* ========== ФОРМЫ ========== */
+.purple-input {
+    width: 100%;
+    padding: 16px;
+    background: #1e1e2a;
+    border: 2px solid var(--dark-border);
+    border-radius: 16px;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.purple-input:focus {
+    border-color: var(--purple-light);
+    outline: none;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+textarea.purple-input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.file-input {
+    width: 100%;
+    padding: 16px;
+    background: #1e1e2a;
+    border: 2px dashed var(--purple-primary);
+    border-radius: 16px;
+    color: var(--purple-glow);
+    cursor: pointer;
+}
+
+/* ========== АДМИН ПАНЕЛЬ ========== */
+.admin-body {
+    background: radial-gradient(circle at 50% 30%, #0a0a0f, #030305);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-login-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.login-card {
+    background: rgba(18, 18, 26, 0.95);
+    border: 2px solid var(--purple-primary);
+    border-radius: 40px;
+    padding: 50px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.login-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.login-subtitle {
+    color: var(--purple-glow);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+}
+
+.error-message {
+    background: #7f1d1d;
+    border: 1px solid #ef4444;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    color: #fee2e2;
+}
+
+.password-hint {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--dark-border);
+    color: var(--text-secondary);
+}
+
+.password-demo {
+    background: #1e1e2a;
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: var(--purple-glow);
+    font-family: monospace;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--purple-light);
+    text-decoration: none;
+}
+
+/* ========== АДМИН ПАНЕЛЬ ========== */
+.admin-header {
+    background: var(--dark-header);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--purple-primary);
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.upload-section {
+    background: var(--dark-card);
+    border: 2px solid var(--purple-primary);
+    border-radius: 30px;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.upload-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--purple-glow);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.success-message {
+    background: #14532d;
+    border: 1px solid #4ade80;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    color: #dcfce7;
+    font-weight: 600;
+}
+
+.videos-list {
+    background: var(--dark-card);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.video-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 120px;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.video-row:hover {
+    background: #1e1e2a;
+}
+
+/* ========== ПЛЕЕР ========== */
+.player-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    max-width: 1600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.video-player-wrapper {
+    background: var(--dark-card);
+    border: 2px solid var(--purple-primary);
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-placeholder {
+    text-align: center;
+}
+
+.play-icon {
+    font-size: 80px;
+    color: var(--purple-light);
+    margin-bottom: 20px;
+}
+
+.placeholder-text {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-purple);
+    margin-bottom: 10px;
+}
+
+.placeholder-subtext {
+    color: var(--text-secondary);
+}
+
+.ad-sidebar {
+    background: var(--dark-card);
+    border: 2px solid var(--purple-primary);
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    height: fit-content;
+}
+
+.ad-text {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--purple-light);
+    margin-bottom: 10px;
+}
+
+.ad-price {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--purple-glow);
+    margin-bottom: 30px;
+}
+
+/* ========== ФУТЕР ========== */
+footer {
+    margin-top: 100px;
+    padding: 40px;
+    border-top: 1px solid var(--dark-border);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--purple-light);
+    margin-bottom: 10px;
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+}
+
+.footer-purple {
+    color: var(--purple-primary);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* ========== УТИЛИТЫ ========== */
+.gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.purple-glow {
+    animation: purplePulse 3s infinite;
+}
+
+@keyframes purplePulse {
+    0% { box-shadow: 0 0 20px rgba(107, 33, 168, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.6); }
+    100% { box-shadow: 0 0 20px rgba(107, 33, 168, 0.3); }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stats-container,
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .player-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+}

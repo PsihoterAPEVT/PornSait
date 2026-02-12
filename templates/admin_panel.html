@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWILL • CONTROL PANEL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="admin-header">
+        <div class="logo">⚡ SWILL ADMIN</div>
+        <div class="admin-controls">
+            <span class="admin-badge">ВЛАДЕЛЕЦ</span>
+            <a href="{{ url_for('index') }}" class="btn-small">НА САЙТ</a>
+            <a href="{{ url_for('admin_logout') }}" class="btn-small btn-danger">ВЫЙТИ</a>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- СТАТИСТИКА -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-value">${{ "{:,}".format(earnings.total) }}</div>
+                <div class="stat-label">ОБЩИЙ ДОХОД</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${{ "{:,}".format(earnings.today) }}</div>
+                <div class="stat-label">СЕГОДНЯ</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">{{ videos|length }}</div>
+                <div class="stat-label">ВИДЕО</div>
+            </div>
+        </div>
+
+        <!-- ФОРМА ЗАГРУЗКИ -->
+        <div class="upload-section purple-border">
+            <h2>📤 ЗАГРУЗИТЬ НОВОЕ ВИДЕО</h2>
+            
+            {% if request.args.get('success') %}
+            <div class="success-message">
+                ✅ ВИДЕО УСПЕШНО ЗАГРУЖЕНО • ПРИБЫЛЬ НАЧИСЛЕНА
+            </div>
+            {% endif %}
+            
+            <form method="POST" action="{{ url_for('upload_video') }}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>НАЗВАНИЕ ВИДЕО</label>
+                    <input type="text" name="title" class="purple-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>ОПИСАНИЕ</label>
+                    <textarea name="description" class="purple-input" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>ВИДЕО ФАЙЛ (MP4)</label>
+                    <input type="file" name="video" accept="video/*" class="file-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>ПРЕВЬЮ (JPG, PNG)</label>
+                    <input type="file" name="thumbnail" accept="image/*" class="file-input" required>
+                </div>
+                
+                <button type="submit" class="btn btn-purple btn-large">
+                    🚀 ОПУБЛИКОВАТЬ И ЗАРАБОТАТЬ
+                </button>
+            </form>
+        </div>
+
+        <!-- СПИСОК ВИДЕО -->
+        <div class="videos-list">
+            <h3>📋 ЗАГРУЖЕННЫЕ ВИДЕО</h3>
+            <div class="video-table">
+                {% for video in videos|reverse %}
+                <div class="video-row">
+                    <div class="video-id">#{{ video.id }}</div>
+                    <div class="video-title">{{ video.title }}</div>
+                    <div class="video-views">{{ "{:,}".format(video.views) }} просмотров</div>
+                    <div class="video-date">{{ video.created_at[:10] }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

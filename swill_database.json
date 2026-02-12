@@ -1,0 +1,42 @@
+{
+    "videos": [
+        {
+            "id": 1,
+            "title": "🔥 SWILL PREMIUM 4K",
+            "description": "Эксклюзивный контент высшего качества. Только для взрослых.",
+            "filename": "sample1.mp4",
+            "thumbnail": "thumb1.jpg",
+            "views": 15420,
+            "created_at": "2026-02-12 10:36:15"
+        },
+        {
+            "id": 2,
+            "title": "💎 SWILL GOLD EDITION",
+            "description": "Самое популярное видео недели. Миллионы просмотров.",
+            "filename": "sample2.mp4",
+            "thumbnail": "thumb2.jpg",
+            "views": 8931,
+            "created_at": "2026-02-12 10:36:15"
+        },
+        {
+            "id": 3,
+            "title": "⭐ SWILL VIP CLUB",
+            "description": "Только для подписчиков. Максимальное удовольствие.",
+            "filename": "sample3.mp4",
+            "thumbnail": "thumb3.jpg",
+            "views": 12751,
+            "created_at": "2026-02-12 10:36:15"
+        }
+    ],
+    "earnings": {
+        "total": 125430,
+        "today": 12900,
+        "week": 87400,
+        "transactions": []
+    },
+    "settings": {
+        "admin_password": "swillmaster2025",
+        "site_title": "SWILL STREAM",
+        "theme": "dark_purple"
+    }
+}

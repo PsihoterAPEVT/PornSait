@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ video.title }} - SWILL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">⚡ SWILL</div>
+        <a href="{{ url_for('index') }}" class="back-btn">← НА ГЛАВНУЮ</a>
+    </header>
+
+    <div class="player-container">
+        <div class="video-player-wrapper purple-border">
+            <div class="video-placeholder">
+                <div class="play-icon">▶</div>
+                <div class="placeholder-text">ПРЕМИУМ ВИДЕО</div>
+                <div class="placeholder-subtext">ДОСТУПНО ТОЛЬКО ВЛАДЕЛЬЦУ</div>
+            </div>
+        </div>
+
+        <div class="video-details">
+            <h1 class="video-title-large">{{ video.title }}</h1>
+            <div class="video-stats">
+                <span class="views">🔥 {{ "{:,}".format(video.views) }} просмотров</span>
+                <span class="date">📅 {{ video.created_at[:10] }}</span>
+                <span class="badge">⭐ PREMIUM</span>
+            </div>
+            <p class="video-description-full">{{ video.description }}</p>
+        </div>
+
+        <div class="ad-sidebar purple-border">
+            <div class="ad-text">AD SPACE</div>
+            <div class="ad-price">$10,000/DAY</div>
+            <button class="btn btn-purple">КУПИТЬ РЕКЛАМУ</button>
+        </div>
+    </div>
+</body>
+</html>
